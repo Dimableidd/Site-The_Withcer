@@ -1,0 +1,673 @@
+body{
+    margin:0;
+    padding:0;
+    color: #fff;
+    font-size: 20px;
+    height: 100%;
+}
+
+@font-face {
+  font-family: 'Gwent';
+  src: url('/font/gwent_extrabold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Witcher';
+  src: url('/font/masonchronicles.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navigation {
+  max-width: 1920px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.logo img {
+  height: 50px;
+}
+
+.logo {
+  text-decoration: none;
+  z-index: 10;
+}
+nav{ padding-right: 4%;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  margin: 0 15px;
+  position: relative;
+}
+
+nav a {
+  font-family: 'Gwent', sans-serif;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+}
+
+nav a:hover {
+  color: #e50914;
+}
+
+.sub-menu {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 0;
+  background-image: none;
+  background-color: #091318de;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 200px;
+}
+
+.sub-menu li {
+  margin: 0;
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.sub-menu li:first-child {
+  border-top: none;
+}
+
+.sub-menu li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+nav li:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+.burger-icon {
+  display: none;
+}
+.navigation.scroll {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/top3_menu_bg.png) 50% 0px no-repeat;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.navigation.scroll::before{
+  background: url(http://clipart-library.com/new_gallery/716115_sparkle-overlay-png.png) no-repeat bottom;
+  background-size: 100%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  opacity: 40%;
+}
+.navigation.scroll::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5%;
+  left: -1%;
+  right: -1%;
+  bottom: 0;
+  z-index: 1;
+  border-width: 20px;
+  border-style: solid;
+  border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+  border-image-slice: 12;
+  border-image-outset: 0;
+  border-image-repeat: round;
+  pointer-events: none;
+  opacity: 60%;
+}
+
+
+.navigation.scroll .logo img {
+  height: 40px;
+}
+
+@media (max-width: 1000px) {
+  nav ul {
+    display: none;
+    flex-direction: row;
+    align-items: start;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    background: url(https://www.thewitcher.com/build/images/bg-section-characters-1440-43f83205..jpg) no-repeat top;
+    padding: 48px 48px 48px 10px;
+    box-sizing: border-box;
+    z-index: 999;
+    opacity: 0;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav{ padding-right: 7%;
+    z-index: 11;
+  }
+  nav a {
+    font-size: 1.8vw;
+  }
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+  }
+  nav ul.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1%;
+    right: -1%;
+    bottom: 0;
+    z-index: 1;
+    border-width: 20px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+  }
+
+  nav li {
+    margin: 10px 0;
+    position: static;
+  }
+  
+  .burger-icon {
+    display: block;
+    cursor: pointer;
+    }
+    
+  .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bar.active {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .bar.active:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .bar.active:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .sub-menu {
+    top: 60px;
+    width: 100%;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .sub-menu li {
+    border-top: none;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sub-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  nav li:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation.scroll {
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navigation.scroll .logo img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 600px){
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav a {
+    font-size: 1.5vh;
+  }
+
+  nav{ padding-right: 7%;
+  }
+
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  nav li {
+    margin: 10px 0;
+    position: static;
+  }
+  
+  .burger-icon {
+    display: block;
+    cursor: pointer;
+    }
+    
+  .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bar.active {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .bar.active:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .bar.active:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .sub-menu {
+    top: 60px;
+    width: 100%;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .sub-menu li {
+    border-top: none;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sub-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  nav li:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation.scroll {
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navigation.scroll .logo img {
+    height: 40px;
+  }
+
+}
+
+  #container{
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header {
+    position: relative;
+    background: url(https://wallpaper-house.com/data/out/12/wallpaper2you_566691.jpg) no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 90px 40px 40px 40px;
+  }
+
+  .best_main{
+    height: 100%;
+  }
+
+  h1 {
+    font-family: 'Witcher', sans-serif;
+    font-size: 36px;
+    margin: 0;
+  }
+  p {
+    font-family: 'Witcher', sans-serif;
+    font-size: 18px;
+    margin: 0;
+  }
+  .group {
+    position: relative;
+    padding-top: 30px;
+  }
+  .group-title {
+    font-family: 'Gwent', sans-serif;
+    text-align: center;
+    font-size: 200%;
+    margin-bottom: 30px;
+  }
+  .creature-container {
+    font-family: 'Witcher', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .creature img {
+    max-width: 100%;
+  }
+  .creature {
+    width: calc(33% - 10px);
+    margin-bottom: 60px;
+  }
+  .creature-name b:hover{
+      color: red;
+  }
+  .creature-name {
+    font-size: 130%;
+    margin-top: 5px;
+    text-align: center;
+  }
+  @media (min-width: 769px) {
+    
+    .h1_head {
+      font-size: 400%;
+    }
+    .p_head {
+      font-size: 150%;
+    }
+  }
+  @media (max-width: 768px) {
+    .h1_head {
+      font-size: 46px;
+    }
+    .p_head {
+      font-size: 18px;
+    }
+    .creature {
+      width: calc(50% - 10px);
+    }
+  }
+  @media (max-width: 480px) {
+    .creature {
+      width: 100%;
+    }
+  }
+
+  .creature img {
+    display: block;
+    margin: auto;
+    max-height: 375px;
+    height: 100%;
+    border: 2px solid transparent;
+    border-image: url(https://www.playgwent.com/build/img/card-reveals/cards/m/frame-basis-gold-b99f7bf6.png) 40;
+    box-shadow: 0px 0px 20px 10px #ffa22329;
+  }
+  
+  .creature img:hover {
+    box-shadow: 0px 0px 20px 10px #ffa22370;
+  }
+  .creature a{
+    color: #ffffff !important;
+    text-decoration: none
+  }
+
+  .faded{
+    background: #000;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    transform: translateZ(0);
+    width: 100%;
+    z-index: 100;
+    display: none; 
+    transition: all 0.5s ease-out;
+  }
+  .char_box {
+    background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_char_panel.jpg) 0 0 no-repeat;
+    display: none;
+    opacity: 0;
+    background-position: center;
+    position: fixed;
+    transform: translateZ(0);
+    z-index: 101;
+    transition: all 0.5s ease-out;
+  }
+  .char_box_content{
+    height: 576px;
+    width: 832px;
+  }
+  .char_info{
+    display: none; 
+  }
+  .char_box_close{
+    background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_char_close.png) 0 0 no-repeat;
+    display: block;
+    float: right;
+    height: 39px;
+    margin-right: 13px;
+    width: 39px;
+    z-index: 105;
+    text-decoration: none;
+  }
+  .char_box_close:hover{
+    filter: brightness(350%);
+  }
+  .popup-title{
+    font-family: 'Gwent', sans-serif; 
+    position: absolute;
+    margin: 2% 0% 0% 5%;
+    font-size: 200%;
+  }
+  .char_image{
+    position: relative;
+  }
+  .char_image::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-width: 12px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+  }
+
+
+  @media screen and (min-width: 895px) {
+    .char_box{
+      height: 576px;
+      margin-left: -416px;
+      margin-top: -288px;
+      width: 832px;
+      left: 50%;
+      top: 50%;
+    }
+    .char_box_content {
+      position: relative;
+    }
+    .char_box_name {
+      left: 0;
+      position: absolute;
+      top: 15px;
+      width: 100%;
+      z-index: 104;
+  }
+  .char_desc {
+    font-size: 60%;
+      height: 300px;
+      left: 30px;
+      line-height: 20px;
+      overflow: auto;
+      position: absolute;
+      text-shadow: 2px 2px 2px #000;
+      top: 130px;
+      width: 360px;
+      z-index: 104;
+  }
+  .popup-img{
+    height: 44vh;
+  }
+  .char_image {
+    position: absolute;
+    right: 10%;
+    z-index: 102;
+    top: 12%;
+  }
+  }
+
+  @media screen and (max-width: 895px) {
+    .char_box {
+      width: 80vw;
+      height: 35vh;
+      left: 10%;
+      top: 30%;
+  }
+  .char_box_name {
+    left: 0;
+    position: absolute;
+    top: 2%;
+    width: 100%;
+    z-index: 104;
+  }
+  .char_desc {
+    font-size: 50%;
+    height: 50%;
+    left: 15px;
+    line-height: 20px;
+    overflow: auto;
+    position: absolute;
+    text-shadow: 2px 2px 2px #000;
+    top: 25%;
+    width: 45%;
+    z-index: 104;
+  }
+  .popup-img{
+    height: 23vh;
+  }
+  .char_image {
+    position: absolute;
+    right: 5%;
+    z-index: 102;
+    top: 20%;
+  }
+  }
+
+  @media screen and (min-height: 400px) {
+  }
+
+  @media screen and (max-height: 400px) {
+    .char_box {
+      width: 57vw;
+      left: 20%;
+      top: 8%;
+      height: 84vh;
+  }
+  .popup-img{
+    height: 65vh;
+  }
+  .char_image {
+    position: absolute;
+    right: 5%;
+    z-index: 102;
+    top: 16%;
+}
+  }
+  .best_main {
+    position: relative;
+    background: url(https://gamerwall.pro/uploads/posts/2022-02/1645950707_46-gamerwall-pro-p-vedmak-bestiarii-monstrov-krasivie-oboi-65.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-bottom: 5px;
+  }
+  .best_main:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+    height: 9px;
+    width: 100%;
+  }
+  .best_main:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+  }
+  .hr_style{
+    margin: 1% 5%;
+    border-radius: 200px;
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png);
+    box-shadow: 5px 5px 5px black;
+  }

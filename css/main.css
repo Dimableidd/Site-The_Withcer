@@ -1,0 +1,1480 @@
+body, html {
+
+  color: #fff;
+  font-size: 20px;
+  height: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: calc(7px + 10*(100vw - 480px)/1440);
+  }
+}
+@media screen and (min-width: 480px) {
+  body {
+    font-size: calc(6px + 10*(100vw - 480px)/1440);
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  body {
+      font-size:20px
+  }
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+@font-face {
+  font-family: 'Gwent';
+  src: url('/font/gwent_extrabold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Witcher';
+  src: url('/font/masonchronicles.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+  #particles-js {
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:black;
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    transition: 1s;
+  }
+
+  div{
+    display:block;
+  }
+  .abs-fill{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+  }
+
+  .open-main-back{
+    z-index: 1001;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 0 5rem 0;
+    transition: 0.5s;
+  }
+  @media (max-height: 500px){
+    .open-main-back{
+      padding: 2rem 0 1rem 0;
+    }
+  }
+  h1,h2,h3,h4,h5,h6,p{
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .h2-quote{
+    font-family: 'Witcher', sans-serif;
+    line-height: 1.875em;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-size: 200%;
+  }
+
+  .title-h2{
+    width: 80%;
+    max-width: 25em;
+  }
+
+.cta{
+  font-family: 'Gwent', sans-serif;
+  font-size: 100%;
+  line-height: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+}
+
+.caption{
+  width: 100%;
+}
+
+@media (min-width: 768px){
+  .caption {
+    max-width: none;
+  }
+}
+.preloader{
+  margin-top: 25rem;
+  display: block;
+}
+@media (max-width: 768px){
+  .preloader{
+    margin-top: 15rem;
+    display: block;
+  }
+}
+@media (min-width: 1920px){
+  .preloader{
+    margin-top: 25rem;
+    display: block;
+  }
+}
+@media (max-height: 500px){
+  .preloader{
+    margin-top: 7rem;
+    display: block;
+  }
+}
+@media (min-height: 1080px){
+  .preloader{
+    margin-top: 25rem;
+    display: block;
+  }
+}
+.pswp__preloader__icn {
+  opacity:0.75;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: clockwise 500ms linear infinite;
+  animation: clockwise 500ms linear infinite;
+  transition: 1s;
+  align-self: center;
+}
+
+
+.pswp__preloader__cut {
+  position: relative;
+  width: 7px;
+  height: 50px;
+  overflow: hidden;
+  
+    position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.pswp__preloader__donut {
+  box-sizing: border-box;
+
+  width: 50px;
+	height: 50px;
+	
+  
+  border: 3px solid #FFF;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+ 
+	position: absolute;
+  top: 0;
+  left: 0;
+  
+	background: none;
+	margin:0;
+  
+  -webkit-animation: donut-rotate 1000ms cubic-bezier(.4,0,.22,1) infinite;
+  animation: donut-rotate 1000ms cubic-bezier(.4,0,.22,1) infinite;
+
+}
+
+@-webkit-keyframes clockwise {
+  0% { -webkit-transform: rotate(0deg) }
+  100% { -webkit-transform: rotate(360deg) }
+}
+@keyframes clockwise {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+@-webkit-keyframes donut-rotate {
+  0% { -webkit-transform: rotate(0) }
+  50% { -webkit-transform: rotate(-140deg) }
+  100% { -webkit-transform: rotate(0) }
+}
+@keyframes donut-rotate {
+  0% { transform: rotate(0) }
+  50% { transform: rotate(-140deg) }
+  100% { transform: rotate(0) }
+}
+.hide{
+  opacity: 0;
+  visibility: hidden;
+}
+.hiden{
+  display:none;
+}
+#Open_site{
+  z-index: 1010;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  transition: all 3s ease-in-out;
+}
+.buttons {
+  position: fixed;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 999;
+}
+
+.speaker {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  overflow: hidden;
+  margin: 5px;
+}
+.speaker span {
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: #fff;
+  margin: 12px 0 0 1px;
+}
+.speaker span:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+  border-width: 10px 12px 10px 15px;
+  left: -13px;
+  top: 5px;
+}
+.speaker span:before {
+  transform: rotate(45deg);
+  border-radius: 0 50px 0 0;
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-style: double;
+  border-color: #fff;
+  border-width: 7px 7px 0 0;
+  left: 18px;
+  top: 9px;
+  transition: all 0.2s ease-out;
+}
+
+.speaker:hover .vl:before {
+  transform: scale(0.8) translate(-17px, 0) rotate(42deg);
+}
+.speaker:hover .mute {
+  opacity:1; transform: scale(1);
+}
+
+
+.speaker.on .mute {
+  opacity:1; transform: scale(1);
+}
+.speaker.on .vl:before {
+  transform: scale(0.8) translate(-17px, 0) rotate(42deg);
+}
+.speaker.on:hover .mute {
+  transform: rotate(180deg); 
+}
+
+.speaker.on:hover .vl:before {
+  transform: scale(1) translate(0px, 0) rotate(42deg);border-color: #7f7f7f;
+}
+.speaker.on:hover .mute {
+  opacity:0; transform: scale(0.3);
+}
+
+.mute {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  opacity: 0;
+  left: 15px;
+  top: 7px;
+  transform: scale(0.3);
+  transition: all 0.2s ease-out;
+
+}
+
+.mute:before, .mute:after {
+  position: absolute;
+  margin-left: 7px;
+  content: ' ';
+  height: 15px;
+  width: 2px;
+  background-color: #7f7f7f;
+}
+.on .mute:before, .on .mute:after {
+  position: absolute;
+  margin-left: 7px;
+  content: ' ';
+  height: 15px;
+  width: 2px;
+  background-color: #ffffff;
+}
+.mute:before {
+  transform: rotate(45deg);
+}
+.mute:after {
+  transform: rotate(-45deg);
+}
+
+.center-con {
+  height: 100px;
+  width: 100px;
+}
+
+
+
+.round_1 {
+  position: absolute;
+  border: 2px solid #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  top: 40px;
+  left: 40px;
+  cursor: pointer;
+}
+
+.round_2 {
+  position: absolute;
+  border: 2px solid #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  top: 40px;
+  cursor: pointer;
+}
+
+#cta{
+  width:100%;
+
+  position: absolute;
+}
+
+#cta .arrow{left: 30%;}
+.arrow {position: absolute; bottom: 0;  margin-left:0px; width: 12px; height: 12px; background-size: contain; top:15px;}
+.segunda{margin-left: 8px;}
+.next {
+background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHN0eWxlPi5zdDB7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxOS4xIDIxN2MyMC4yIDIwLjIgMTkuOSA1My4yLS42IDczLjdzLTUzLjUgMjAuOC03My43LjZsLTE5MC0xOTBjLTIwLjEtMjAuMi0xOS44LTUzLjIuNy03My43UzEwOSA2LjggMTI5LjEgMjdsMTkwIDE5MHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE5LjEgMjkwLjVjMjAuMi0yMC4yIDE5LjktNTMuMi0uNi03My43cy01My41LTIwLjgtNzMuNy0uNmwtMTkwIDE5MGMtMjAuMiAyMC4yLTE5LjkgNTMuMi42IDczLjdzNTMuNSAyMC44IDczLjcuNmwxOTAtMTkweiIvPjwvc3ZnPg==);
+}
+
+@keyframes bounceAlpha {
+0% {opacity: 1; transform: translateX(0px) scale(1);}
+25%{opacity: 0; transform:translateX(10px) scale(0.9);}
+26%{opacity: 0; transform:translateX(-10px) scale(0.9);}
+55% {opacity: 1; transform: translateX(0px) scale(1);}
+}
+
+.bounceAlpha {
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.arrow.primera.bounceAlpha {
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-delay:0.2s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.round_2:hover .arrow{
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+.round_2:hover .arrow.primera{
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-delay:0.2s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.videointro{
+  height: 100%;
+  width: 100%;
+}
+
+.videointro video{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+video {
+  object-fit: contain;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+.button{
+  font-family: 'Witcher', sans-serif;
+  padding: 5% 3% 5% 3%;
+  color: #ff7b00;
+  border-bottom: 3px solid #ff7b000a;
+  border-right: 3px solid #ff7b000a;
+  font-weight: bold;
+  border-radius: 15px;
+  letter-spacing: 2px;
+  font-size: 150%;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #ff8b1e;
+  animation: ani 2s forwards;
+}
+@keyframes ani {
+  0% {opacity: 0; visibility: hidden;}
+  100% {opacity: 1; visibility:visible;}
+}
+.button:hover{
+    padding: 5% 40px 5% 5%;
+    border-radius: 20px;
+    border-bottom: 3px solid #dc6a00;
+    border-right: 3px solid #dc6a00;
+    background: #ff7b00; 
+    color: #ffffff;
+    box-shadow: 
+                0 0 5px #ff9900,
+                0 0 25px #ff9d00,
+                0 0 50px #ff6200,
+                0 0 200px #ff5100,
+                0 0 500px #fb6868;
+}
+.button:after {
+  content: ">";
+  transition: all ease .5s;
+  position:relative;
+  opacity: 0;
+  left: -12px;
+}
+.button:hover:after {
+  content: ">";
+  transition: all ease .5s;
+  opacity: 1;
+  left: 8px;
+}
+
+
+
+/* Главная страница!!! */
+@media screen and (max-width: 480px){
+  .AS_content_p, .S_content_p {
+    text-align: justify;
+    padding: 2% 10% 2% 10%; 
+  }
+  .SO_content_p{
+    text-align: justify;
+    padding: 2% 10% 2% 10%; 
+  }
+  .AD_content_p{
+    text-align: justify;
+    padding: 2% 10% 2% 10%; 
+  }
+  .Anjey_Sapkovsky_photo{
+    width: 100%;
+    padding: 2% 10% 2% 10%;
+  }
+  .Anjey_Sapkovsky_photo::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 25%;
+    bottom: 0;
+    z-index: 1;
+    border-width: 12px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+    margin: 1% 0%;
+  }
+  .Saga_photo{
+    width: 80%;
+    height: 90vw;
+    margin-left: 10%;
+  }
+  .Saga_photo::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-width: 12px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+  }
+  .item{
+    display: inline-block;
+    margin-right: 0px;
+    margin-top: 50px;
+    vertical-align: top;
+  }
+  .Аdaptations_content{
+    font-family: 'Witcher', sans-serif;
+    position: relative;
+    text-align: center;
+    background: no-repeat;
+    background-size: cover;
+    background-image: url(https://wp-s.ru/wallpapers/15/13/452010939783843/fioletovye-bliki-na-chernom-fone.jpg);
+    background-position-x: center;
+  }
+  .Heading{
+    font-family: 'Witcher', sans-serif;
+    font-size: 180%;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 481px){
+  .AS_content_p {
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+    float: left;
+  }
+  .S_content_p{
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .SO_content_p{
+    width: auto;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .AD_content_p{
+    width: auto;
+    text-align: justify;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .Anjey_Sapkovsky_photo{
+    width: 35%;
+    float: right;
+    padding: 0% 0% 0% 5%;
+  }
+  .Anjey_Sapkovsky_photo::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 6%;
+    bottom: 0;
+    z-index: 1;
+    border-width: 12px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+    margin-right: 11%;
+  }
+  .Saga_photo{
+    width: 34%;
+    float: left;
+    padding: 0% 5% 0% 0%;
+    height: 39vw;
+  }
+  .Saga_photo::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 12%;
+    bottom: 0;
+    z-index: 1;
+    border-width: 12px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+  }
+  .item{
+    display: inline-block;
+    margin-top: 30px;
+    vertical-align: top;
+  }
+  .Аdaptations_content{
+    font-family: 'Witcher', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+    background: no-repeat;
+    background-size: cover;
+    background-image: url(https://wp-s.ru/wallpapers/15/13/452010939783843/fioletovye-bliki-na-chernom-fone.jpg);
+    background-position-x: center;
+    padding: 2% 5%;
+    justify-content: space-evenly;
+  }
+  .Аdaptations_content::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-width: 20px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/merchants/frame-91f798f8.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+    opacity: 60%;
+  }
+  .Heading{
+    font-family: 'Witcher', sans-serif;
+    font-size: 180%;
+    padding-left: 6%;
+    text-align: left;
+  }
+}
+#container{
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+}
+
+.navigation {
+  max-width: 1920px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.logo img {
+  height: 50px;
+}
+
+.logo {
+  text-decoration: none;
+  z-index: 10;
+}
+nav{ padding-right: 4%;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  margin: 0 15px;
+  position: relative;
+}
+
+nav a {
+  font-family: 'Gwent', sans-serif;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+}
+
+nav a:hover {
+  color: #e50914;
+}
+.item:hover {
+  color: #e50914;
+}
+
+.sub-menu {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 0;
+  background-image: none;
+  background-color: #091318de;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 200px;
+}
+
+.sub-menu li {
+  margin: 0;
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.sub-menu li:first-child {
+  border-top: none;
+}
+
+.sub-menu li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+nav li:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+.burger-icon {
+  display: none;
+}
+.navigation.scroll {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/top3_menu_bg.png) 50% 0px no-repeat;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.navigation.scroll::before{
+  background: url(http://clipart-library.com/new_gallery/716115_sparkle-overlay-png.png) no-repeat bottom;
+  background-size: 100%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  opacity: 40%;
+}
+.navigation.scroll::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5%;
+  left: -1%;
+  right: -1%;
+  bottom: 0;
+  z-index: 1;
+  border-width: 20px;
+  border-style: solid;
+  border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+  border-image-slice: 12;
+  border-image-outset: 0;
+  border-image-repeat: round;
+  pointer-events: none;
+  opacity: 60%;
+}
+
+
+.navigation.scroll .logo img {
+  height: 40px;
+}
+
+@media (max-width: 1000px) {
+  nav ul {
+    display: none;
+    flex-direction: row;
+    align-items: start;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    background: url(https://www.thewitcher.com/build/images/bg-section-characters-1440-43f83205..jpg) no-repeat top;
+    padding: 48px 48px 48px 10px;
+    box-sizing: border-box;
+    z-index: 999;
+    opacity: 0;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav{ padding-right: 7%;
+    z-index: 11;
+  }
+  nav a {
+    font-size: 1.8vw;
+  }
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+  }
+  nav ul.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1%;
+    right: -1%;
+    bottom: 0;
+    z-index: 1;
+    border-width: 20px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+  }
+
+  nav li {
+    margin: 10px 0;
+    position: static;
+  }
+  
+  .burger-icon {
+    display: block;
+    cursor: pointer;
+    }
+    
+  .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bar.active {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .bar.active:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .bar.active:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .sub-menu {
+    top: 60px;
+    width: 100%;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .sub-menu li {
+    border-top: none;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sub-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  nav li:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation.scroll {
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navigation.scroll .logo img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 600px){
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav a {
+    font-size: 1.5vh;
+  }
+
+  nav{ padding-right: 7%;
+  }
+
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  nav li {
+    margin: 10px 0;
+    position: static;
+  }
+  
+  .burger-icon {
+    display: block;
+    cursor: pointer;
+    }
+    
+  .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bar.active {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .bar.active:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .bar.active:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .sub-menu {
+    top: 60px;
+    width: 100%;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .sub-menu li {
+    border-top: none;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sub-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  nav li:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation.scroll {
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navigation.scroll .logo img {
+    height: 40px;
+  }
+
+}
+
+header {
+  width: 100%;
+  height: 100%;
+  max-height: 1920px;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+header::before{
+  background-image: linear-gradient(180deg,transparent 80%,#000);
+  content: "";
+  height: 20%;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  width: 100%;
+  margin-bottom: 200px;
+}
+.vid_back{
+  max-width: 1920px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position:fixed;
+  z-index: -1;
+}
+
+.World_Witcher{
+    height: auto;
+    width: 100%;
+    background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1614455048_97-p-zadnii-fon-temnii-125.jpg);
+    position: relative;
+    background-position-x: center;
+}
+
+.World_Witcher::before{
+  background-image: linear-gradient(180deg,transparent 90%,#000);
+  background-size: 100%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+.World_Witcher:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+  height: 9px;
+  width: 100%;
+}
+.world_header{
+  font-family: 'Witcher', sans-serif;
+  font-size: 180%;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.Anjey_Sapkovsky{
+  position: relative;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 2%;
+  background: url(https://static.springbuilder.site/fs/userFiles-v2/lasbet/images/r670-main-bg.jpg?v=1645426036) no-repeat;
+  background-size: cover;
+  background-position-x: center;
+}
+.Anjey_Sapkovsky::before{
+  background-image: linear-gradient(180deg,transparent 97%,#000);
+  background-size: 100%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  transform: scaleX(-1) scaleY(-1);
+}
+.Anjey_Sapkovsky::after{
+
+  background-image: linear-gradient(180deg,transparent 90%,#000);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  width: 100%;
+
+}
+.Anjey_Sapkovsky_header{
+  font-family: 'Witcher', sans-serif;
+  font-size: 180%;
+  padding-top: 10px;
+  text-align: center;
+}
+.hr_style{
+  margin: 1% 5%;
+  border-radius: 200px;
+  background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png);
+  box-shadow: 5px 5px 5px black;
+}
+.Anjey_Sapkovsky_content{
+  padding-top: 10px;
+  width: 100%;
+  overflow: hidden;
+}
+.Anjey_Sapkovsky_photo{
+  vertical-align: middle;
+  position: relative;
+}
+.img_Sapkovsky{
+
+  max-width: 100%;
+  height: auto;
+}
+*, :after, :before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.Saga{
+  position: relative;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 2%;
+  background: no-repeat;
+  background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1614448519_64-p-fon-temnogo-tsveta-84.jpg);
+  background-size: cover;
+  background-position-x: center;
+}
+.Saga::before{
+  background-image: linear-gradient(360deg,transparent 99%,#000);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  width: 100%;
+}
+.Saga::after{
+  background-image: linear-gradient(180deg,transparent 97%,#000);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  width: 100%;
+}
+.Saga_header{
+  font-family: 'Witcher', sans-serif;
+  font-size: 180%;
+  padding-top: 10px;
+  text-align: center;
+}
+.Saga_content{
+  padding-top: 10px;
+  width: 100%;
+  overflow: hidden;
+}
+.S_content_p{
+  font-family: 'Gwent', sans-serif;
+  height: 100%;
+  font-size: 120%;
+  line-height: 30px;
+}
+.Saga_photo{
+  vertical-align: middle;
+  position: relative;
+}
+.img_Saga{
+  max-width: 100%;
+}
+
+/* Скрол паракле эффекта */
+:root {
+	--transition: 1s cubic-bezier(.2, .6, 0, 1);
+}
+.slider {
+	height: 80%;
+	background-color: black;
+}
+.slider__layer {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	will-change: transform;
+	/* transition: var(--transition)!important; */
+}
+.slider__layer::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	box-shadow: inset 0 0 250px rgb(0 0 0 / .3);
+}
+.slider__item {
+	overflow: hidden;
+}
+.slider__wrapper {
+	will-change: transform;
+	transform-style: preserve-3d;
+	/* transition: var(--transition)!important; */
+}
+
+
+.swiper-button-prev::after, 
+.swiper-button-next::after {
+  color: silver;
+  font-size:80px;
+  opacity: 50%;
+}
+.swiper-button-prev:hover::after, 
+.swiper-button-next:hover::after {
+  opacity: 100%;
+}
+
+.swiper-pagination-bullet{
+  width: 12px !important;
+  height: 12px !important;
+  background-color: silver !important;
+}
+
+.swiper::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -1%;
+  right: -1%;
+  bottom: 0;
+  z-index: 1;
+  border-width: 20px;
+  border-style: solid;
+  border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+  border-image-slice: 12;
+  border-image-outset: 0;
+  border-image-repeat: round;
+  pointer-events: none;
+}
+
+.Characters{
+  font-family: 'Witcher', sans-serif;
+  z-index:2;
+  position:absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size:200%;
+  padding-top: 0.5%;
+  color: rgb(224, 224, 224);
+}
+
+.Аdaptations{
+  height: auto;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 2%;
+  background: no-repeat;
+  background-size: cover;
+  background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-03/1615845496_41-p-chernii-fon-vertikalnii-46.jpg);
+}
+.Аdaptations_header{
+  font-family: 'Witcher', sans-serif;
+  font-size: 180%;
+  padding-top: 10px;
+  text-align: center;
+}
+.hr_style_1{
+  margin: 0% 5% 1% 5%;
+  border-radius: 200px;
+  background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png);
+  box-shadow: 5px 5px 5px black;
+}
+.image{
+  vertical-align: middle;
+  position: relative;
+}
+
+.image::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  border-width: 45px;
+  border-style: solid;
+  border-image-source: url(https://www.playgwent.com/build/img/crimson/frame-red-8e265f78.png);
+  border-image-slice: 12;
+  border-image-outset: 0;
+  border-image-repeat: round;
+  pointer-events: none;
+}
+.caption{
+  color: rgba(var(--theme-page-text-color--rgb),.4);
+}
+.scroll_welcome{
+  opacity: 0;
+}
+@media screen and (min-width: 481px){
+  .logo_fon{
+    font-family: 'Witcher', sans-serif;
+    margin-left: 10vw;
+    max-width: 34vw;
+    margin-top: 0vw;
+    margin-bottom: 0;
+    font-size: 130%;
+    transition: all 0.7s ease-in-out;
+  }
+  .world_content{
+    font-family: 'Gwent', sans-serif;
+    font-size: 120%;
+    padding: 0% 10% 2% 10%;
+    text-align: justify;
+    line-height: 30px;
+  }
+  .AS_content_p{
+    font-family: 'Gwent', sans-serif;
+    height: 100%;
+    font-size: 130%;
+  }
+  .S_content_p{
+    height: 100%;
+    font-size: 120%;
+    line-height: 30px;
+  }
+  .SO_content_p{
+    font-family: 'Gwent', sans-serif;
+    height: 100%;
+    font-size: 120%;
+    line-height: 30px;
+  }
+  .a_caption{
+    font-size: 120%;
+  }
+  .AD_content_p{
+    font-family: 'Gwent', sans-serif;
+    position: relative;
+    height: 100%;
+    font-size: 120%;
+    padding: 1% 5%;
+    line-height: 30px;
+    background: no-repeat;
+    background-size: cover;
+    background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1612303246_195-p-temno-lilovii-fon-238.jpg);
+    background-position-x: center;
+  }
+  .AD_content_p::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-width: 10px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/black-sun/images-frame@2x-b861a0b2.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+    opacity: 40%;
+  }
+}
+@media screen and (max-width: 480px){
+  .logo_fon {
+    font-family: 'Witcher', sans-serif;
+    margin-left: 10vw;
+    max-width: -4vw;
+    margin-top: 0vw;
+    margin-bottom: 0;
+    font-size: 200%;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+.world_content{
+  font-family: 'Gwent', sans-serif;
+  font-size: 180%;
+  padding: 0% 10% 2% 10%;
+  text-align: justify;
+  line-height: 30px;
+}
+.AS_content_p{
+  font-family: 'Gwent', sans-serif;
+  height: 100%;
+  font-size: 160%;
+}
+.S_content_p{
+  height: 100%;
+  font-size: 200%;
+  line-height: 30px;
+}
+.SO_content_p{
+  font-family: 'Gwent', sans-serif;
+  height: 100%;
+  font-size: 200%;
+  line-height: 30px;
+}
+.a_caption{
+  font-size: 200%;
+}
+.AD_content_p{
+  font-family: 'Gwent', sans-serif;
+  position: relative;
+  height: 100%;
+  font-size: 200%;
+  line-height: 30px;
+  background: no-repeat;
+  background-size: cover;
+  background-image: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1612303246_195-p-temno-lilovii-fon-238.jpg);
+  background-position-x: center;
+}
+}
+a {
+  text-decoration:none;
+  color: inherit; 
+}

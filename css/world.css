@@ -1,0 +1,658 @@
+body{
+    margin:0;
+    padding:0;
+    color: #fff;
+    font-size: 20px;
+    height: 100%;
+}
+
+@font-face {
+  font-family: 'Gwent';
+  src: url('/font/gwent_extrabold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Witcher';
+  src: url('/font/masonchronicles.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navigation {
+  max-width: 1920px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.logo img {
+  height: 50px;
+}
+
+.logo {
+  text-decoration: none;
+  z-index: 10;
+}
+nav{ padding-right: 4%;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  margin: 0 15px;
+  position: relative;
+}
+
+nav a {
+  font-family: 'Gwent', sans-serif;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+}
+
+nav a:hover {
+  color: #e50914;
+}
+
+.sub-menu {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 0;
+  background-image: none;
+  background-color: #091318de;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 200px;
+}
+
+.sub-menu li {
+  margin: 0;
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.sub-menu li:first-child {
+  border-top: none;
+}
+
+.sub-menu li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+nav li:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+.burger-icon {
+  display: none;
+}
+.navigation.scroll {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/top3_menu_bg.png) 50% 0px no-repeat;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.navigation.scroll::before{
+  background: url(http://clipart-library.com/new_gallery/716115_sparkle-overlay-png.png) no-repeat bottom;
+  background-size: 100%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  opacity: 40%;
+}
+.navigation.scroll::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5%;
+  left: -1%;
+  right: -1%;
+  bottom: 0;
+  z-index: 1;
+  border-width: 20px;
+  border-style: solid;
+  border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+  border-image-slice: 12;
+  border-image-outset: 0;
+  border-image-repeat: round;
+  pointer-events: none;
+  opacity: 60%;
+}
+
+
+.navigation.scroll .logo img {
+  height: 40px;
+}
+
+@media (max-width: 1000px) {
+  nav ul {
+    display: none;
+    flex-direction: row;
+    align-items: start;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    background: url(https://www.thewitcher.com/build/images/bg-section-characters-1440-43f83205..jpg) no-repeat top;
+    padding: 48px 48px 48px 10px;
+    box-sizing: border-box;
+    z-index: 999;
+    opacity: 0;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav{ padding-right: 7%;
+    z-index: 11;
+  }
+  nav a {
+    font-size: 1.8vw;
+  }
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+  }
+  nav ul.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1%;
+    right: -1%;
+    bottom: 0;
+    z-index: 1;
+    border-width: 20px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+  }
+
+  nav li {
+    margin: 10px 0;
+    position: static;
+  }
+  
+  .burger-icon {
+    display: block;
+    cursor: pointer;
+    }
+    
+  .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bar.active {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .bar.active:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .bar.active:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .sub-menu {
+    top: 60px;
+    width: 100%;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .sub-menu li {
+    border-top: none;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sub-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  nav li:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation.scroll {
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navigation.scroll .logo img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 600px){
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav a {
+    font-size: 1.5vh;
+  }
+
+  nav{ padding-right: 7%;
+  }
+
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  nav li {
+    margin: 10px 0;
+    position: static;
+  }
+  
+  .burger-icon {
+    display: block;
+    cursor: pointer;
+    }
+    
+  .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bar.active {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .bar.active:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .bar.active:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .sub-menu {
+    top: 60px;
+    width: 100%;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .sub-menu li {
+    border-top: none;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sub-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  nav li:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation.scroll {
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navigation.scroll .logo img {
+    height: 40px;
+  }
+
+}
+
+  #container{
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  header {
+    position: relative;
+    background: url(https://a-static.besthdwallpaper.com/the-witcher-geralt-of-rivia-wallpaper-3440x1440-82967_15.jpg) no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 40px 100px 40px;
+    background-position-x: center;
+  }
+
+  @media screen and (max-width: 560px){
+    h1 {
+      font-family: 'Witcher', sans-serif;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 2rem;
+      margin: 0;
+      z-index: 1;
+    }
+    .Main_content_p, .Story_content_p, .Geography_content_p, .States_content_p {
+      text-align: justify;
+      padding: 2% 10% 2% 10%; 
+    }
+    .Main_photo{
+      width: 100%;
+      padding: 2% 0% 2% 0%;
+      text-align: center;
+    }
+    .Main_photo::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 1%;
+      left: 9%;
+      right: 9%;
+      bottom: 3%;
+      z-index: 1;
+      border-width: 12px;
+      border-style: solid;
+      border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+      border-image-slice: 12;
+      border-image-outset: 0;
+      border-image-repeat: round;
+      pointer-events: none;
+    }
+  }
+  @media screen and (min-width: 560px){
+    h1 {
+      font-family: 'Witcher', sans-serif;
+      padding-top: 4rem;
+      text-align: center;
+      font-size: 4rem;
+      margin: 0;
+      z-index: 1;
+    }
+    .Main_content_p {
+      text-align: justify;
+      margin-left: 8%;
+    }
+    .Story_content_p {
+      text-align: justify;
+      padding: 2% 8% 2% 8%; 
+    }
+    .Geography_content_p {
+        text-align: justify;
+        padding: 2% 8% 2% 8%; 
+      }
+    .States_content_p {
+    text-align: justify;
+    padding: 2% 8% 2% 8%; 
+    }
+    .Main_photo{
+      width: 34%;
+      float: right;
+      padding: 0% 0% 0% 5%; 
+    }
+    .Main_photo::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0%;
+      left: 12.5%;
+      right: 17%;
+      bottom: 1%;
+      z-index: 1;
+      border-width: 12px;
+      border-style: solid;
+      border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+      border-image-slice: 12;
+      border-image-outset: 0;
+      border-image-repeat: round;
+      pointer-events: none;
+    }
+  }
+
+  .Main{
+    background: url(https://img1.goodfon.ru/original/2880x1800/5/9d/the-witcher-3-wild-hunt-4872.jpg) no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 2%;
+    position: relative;
+  }
+  .Main:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+    height: 9px;
+    width: 100%;
+  }
+  .Main::before{
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    background-color: rgba(0,0,0,0.3);
+    content: "";
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+  }
+  .Main_header{
+    font-size: 180%;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .hr_style{
+    margin: 0% 5% 2% 5%;
+    border-radius: 200px;
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png);
+    box-shadow: 5px 5px 5px black;
+    position: relative;
+    z-index: 1;
+  }
+  .Main_content{
+    font-family: 'Gwent', sans-serif;
+    padding-top: 10px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .Main_content_p{
+    position: relative;
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+  }
+  .Main_photo{
+    vertical-align: middle;
+    position: relative;
+  }
+  .img_Main{
+  
+    max-width: 100%;
+    height: auto;
+  }
+  *, :after, :before {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  h2 {
+    font-family: 'Witcher', sans-serif;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+ul {
+  font-family: 'Gwent', sans-serif;
+  font-size: 2rem;
+  list-style: square;
+  margin: 0 0 0 3%;
+  padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  .Story{
+    background: url(https://w.forfun.com/fetch/7a/7adf106c62099ce381d16578328839d3.jpeg) no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    height: auto;
+    width: 100%;
+    text-align: center;
+  }
+  .Story_content_p{
+    font-family: 'Gwent', sans-serif;
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+  }
+  .Geography{
+    background: url(https://fonzon.club/uploads/posts/2022-12/1672113138_4-fonzon-club-p-vedmak-interaktivnaya-karta-mira-6.jpg) no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  .Geography:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    background-image: linear-gradient(180deg,transparent 95%,#000);
+    background-size: 90%;
+  }
+  .Geography::after{
+    background-image: linear-gradient(180deg,transparent 95%,#000);
+    background-size: 100%;
+    content: "";
+    height: 50%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    transform: scaleX(-1) scaleY(-1);
+  }
+  .Geography_content_p{
+    font-family: 'Gwent', sans-serif;
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+    position: relative;
+  }
+  .States{
+    background: url(https://i.pinimg.com/originals/80/5f/fc/805ffc5daa6fa6fe10a46a62fd0d6464.jpg) no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-attachment: fixed;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  .States:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+  }
+  .States::after{
+    background-image: linear-gradient(180deg,transparent 98%,#000);
+    background-size: 100%;
+    content: "";
+    height: 50%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    transform: scaleX(-1) scaleY(-1);
+  }
+  .States_content_p{
+    font-family: 'Witcher', sans-serif;
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  h3{
+    font-family: 'Witcher', sans-serif;
+    font-size: 100%;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  .img_S{
+    float:left;
+    margin: 0 20px 10px 10px;
+  }

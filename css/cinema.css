@@ -1,0 +1,793 @@
+body{
+    margin:0;
+    padding:0;
+    color: #fff;
+    font-size: 20px;
+    height: 100%;
+}
+
+@font-face {
+  font-family: 'Gwent';
+  src: url('/font/gwent_extrabold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Witcher';
+  src: url('/font/masonchronicles.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navigation {
+  max-width: 1920px;
+  position:absolute;
+  bottom: 5%;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+.logo img {
+  padding-left: 20px;
+  height: 50px;
+}
+
+.logo {
+  text-decoration: none;
+  z-index: 10;
+}
+nav{ padding-right: 4%;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  margin: 0 15px;
+  position: relative;
+}
+
+nav a {
+  font-family: 'Gwent', sans-serif;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+}
+
+nav a:hover {
+  color: #e50914;
+}
+
+.sub-menu {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 0;
+  background-image: none;
+  background-color: #091318de;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 200px;
+}
+
+.sub-menu li {
+  margin: 0;
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.sub-menu li:first-child {
+  border-top: none;
+}
+
+.sub-menu li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+nav li:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+.burger-icon {
+  display: none;
+}
+.navigation.scroll {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/top3_menu_bg.png) 50% 0px no-repeat;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  bottom: auto;
+}
+.navigation.scroll::before{
+  background: url(http://clipart-library.com/new_gallery/716115_sparkle-overlay-png.png) no-repeat bottom;
+  background-size: 100%;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  opacity: 40%;
+}
+.navigation.scroll::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5%;
+  left: -1%;
+  right: -1%;
+  bottom: 0;
+  z-index: 1;
+  border-width: 20px;
+  border-style: solid;
+  border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+  border-image-slice: 12;
+  border-image-outset: 0;
+  border-image-repeat: round;
+  pointer-events: none;
+  opacity: 60%;
+}
+
+.navigation.scroll .logo img {
+  height: 40px;
+}
+
+@media (max-width: 1000px) {
+  nav ul {
+    display: none;
+    flex-direction: row;
+    align-items: start;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    background: url(https://www.thewitcher.com/build/images/bg-section-characters-1440-43f83205..jpg) no-repeat top;
+    padding: 48px 48px 48px 10px;
+    box-sizing: border-box;
+    z-index: 999;
+    opacity: 0;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  nav{ padding-right: 7%;
+    z-index: 11;
+  }
+  nav a {
+    font-size: 1.8vw;
+  }
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+  }
+  nav ul.active::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1%;
+    right: -1%;
+    bottom: 0;
+    z-index: 1;
+    border-width: 20px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+  }
+
+  nav li {
+    margin: 10px 0;
+    position: static;
+  }
+  
+  .burger-icon {
+    display: block;
+    cursor: pointer;
+    }
+    
+  .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bar.active {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .bar.active:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .bar.active:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .sub-menu {
+    top: 60px;
+    width: 100%;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .sub-menu li {
+    border-top: none;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sub-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  nav li:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation.scroll {
+    background-color: #20202099;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    bottom: auto;
+  }
+  
+  .navigation.scroll .logo img {
+    height: 40px;
+  }
+}
+@media (max-width: 600px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #202020;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav{ padding-right: 7%;
+  }
+  nav a {
+    font-size: 1.5vh;
+  }
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  nav li {
+    margin: 10px 0;
+    position: static;
+  }
+  
+  .burger-icon {
+    display: block;
+    cursor: pointer;
+    }
+    
+  .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .bar.active {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .bar.active:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .bar.active:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .sub-menu {
+    top: 60px;
+    width: 100%;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .sub-menu li {
+    border-top: none;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sub-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  nav li:hover .sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navigation.scroll {
+    background-color: #20202099;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    bottom: auto;
+  }
+  
+  .navigation.scroll .logo img {
+    height: 40px;
+  }
+}
+
+  #container{
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header {
+    width: 100%;
+    height: 100%;
+    max-height: 1000px; 
+    position: relative;
+    margin-bottom:-5px;
+  }
+
+  .vid_back{
+    max-width: 1920px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: -1;
+  }
+  @media screen and (min-width: 895px) {
+  .gallery-top {
+    position: relative;
+    height: 40vw; 
+    width: auto;
+  }
+  .gallery-thumbs {
+    height: 8vw;
+  }
+  .conteiner_slider{
+    padding: 3% 15% 0% 15%;
+  }
+  }
+  @media screen and (max-width: 895px) {
+  .gallery-top {
+    position: relative;
+    height: 60vw;
+    width: auto;
+  }
+  .gallery-thumbs {
+    height: 15vw;
+  }
+  .conteiner_slider{
+    padding: 3% 0% 0% 0%;
+  }
+  @media screen and (min-height: 400px) {
+  .conteiner_slider{
+    padding: 3% 0% 0% 0%;
+  }
+  .header{
+    justify-content: center;
+  }
+  }
+  @media screen and (max-height: 400px) {
+  .gallery-top {
+    height: 40vw;
+  }
+  .conteiner_slider{
+    padding: 3% 15% 0% 15%;
+  }
+  }
+  }
+  h1{
+    font-family: 'Witcher', sans-serif;
+    font-size: 200%;
+    margin: 2% 0%;
+  }
+  h2{
+    font-family: 'Gwent', sans-serif;
+    font-size:170%;
+    margin-top:0;
+  }
+  h3{
+    font-family: 'Witcher', sans-serif;
+    font-size:120%;
+    margin-top:0;
+  }
+  ul {
+    list-style:square;
+    margin: 0 0 0 3%;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  .header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+  .label{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-inline-end: 0;
+    padding: 3px 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-inline-end: 15px;
+  }
+  .label:after {
+    content: " ";
+    display: block;
+    height: 2px;
+    width: 100%;
+  }
+  .label:hover {
+  color:#e50914;
+  }
+  .header .label.active {
+    color: red;
+    text-decoration:underline;
+  }
+  .conteiner_slider{
+    background: url(https://www.playgwent.com/build/img/footer/bg-footer-1440-dcbabc8a.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: 'Gwent', sans-serif;
+  }
+  .conteiner_slider:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+    height: 9px;
+    width: 100%;
+  }
+  .slider{
+    height: 100%;
+    width: 100%;
+  }
+  .swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .swiper-slide {
+    background-size:cover;
+    background-position: center;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+  }
+  .swiper-slide::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-width: 12px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+  }
+  .swiper-slide {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+  }
+  .swiper-button-prev::after, 
+  .swiper-button-next::after {
+    color: rgb(0, 255, 38);
+    font-size:80px;
+    opacity: 50%;
+  }
+  .swiper-button-prev:hover::after, 
+  .swiper-button-next:hover::after {
+    opacity: 100%;
+  }
+  .gallery-thumbs {
+    width: auto;
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+  .gallery-thumbs .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+    cursor: pointer;
+  }
+  .gallery-thumbs .swiper-slide:hover{
+    opacity: 1;
+  }
+  .gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+  .head {
+    background: url(https://i.pinimg.com/originals/cf/7f/48/cf7f48cf78302fb0047fec0d65530024.jpg) no-repeat;
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+  .head::before {
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    background-size: 100%;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+  }
+  .head:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+    height: 9px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 560px){
+    h1 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      text-align: center;
+      font-size: 2rem;
+      margin: 0;
+      z-index: 1;
+    }
+    .Main_content_p, .Story_content_p {
+      text-align: justify;
+      padding: 2% 10% 2% 10%; 
+      font-size: 110%;
+    }
+    .Main_photo{
+      width: 100%;
+      padding: 0% 0% 0% 10%;
+    }
+    .Main_photo::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 9%;
+      right: 17%;
+      bottom: 0;
+      z-index: 1;
+      border-width: 12px;
+      border-style: solid;
+      border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+      border-image-slice: 12;
+      border-image-outset: 0;
+      border-image-repeat: round;
+      pointer-events: none;
+      margin: 0% 0% 1% 0%;
+    }
+  }
+  @media screen and (min-width: 560px){
+    h1 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      text-align: center;
+      font-size: 4rem;
+      margin: 0;
+      z-index: 1;
+    }
+    .Main_content_p {
+      text-align: justify;
+      margin-left: 8%;
+      padding-right: 8%;
+    }
+    .Story_content_p {
+      text-align: justify;
+      padding: 0% 8% 2% 8%; 
+      font-size: 130%;
+    }
+    .Main_photo{
+      width: 34%;
+      float: right;
+      padding: 0% 0% 0% 7%;
+    }
+    .Main_photo::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0%;
+      left: 17%;
+      right: 16%;
+      bottom: 1%;
+      z-index: 1;
+      border-width: 12px;
+      border-style: solid;
+      border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+      border-image-slice: 12;
+      border-image-outset: 0;
+      border-image-repeat: round;
+      pointer-events: none;
+    }
+  }
+
+  .Main{
+    background: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1614447902_126-p-temnii-fon-dlya-fotoshopa-191.jpg) no-repeat;
+    background-size: cover;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 2%;
+    position: relative;
+  }
+  .Main::after{
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 100%;
+  }
+  .Main::before {
+    background-image: linear-gradient(180deg,transparent 99%,#000);
+    background-size: 100%;
+    content: "";
+    height: 80%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    transform: scaleX(-1) scaleY(-1);
+}
+  .Main_header{
+    font-size: 180%;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .hr_style{
+    margin: 0% 5% 2% 5%;
+    border-radius: 200px;
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png);
+    box-shadow: 5px 5px 5px black;
+    position: relative;
+    z-index: 1;
+  }
+  .Main_content{
+    padding-top: 10px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .Main_content_p{
+    font-family: 'Gwent', sans-serif;
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .Main_photo{
+    vertical-align: middle;
+    position: relative;
+  }
+  .img_Main{
+  
+    max-width: 100%;
+    height: auto;
+  }
+  *, :after, :before {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  h2 {
+
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+ul {
+    list-style:square;
+    margin: 0 0 0 3%;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  .Story{
+    background: url(https://phonoteka.org/uploads/posts/2022-01/1643208941_73-phonoteka-org-p-temno-sine-serii-fon-82.jpg) no-repeat;
+    background-size: cover;
+    height: auto;
+    width: 100%;
+    text-align: center;
+  }
+  .Story::before {
+    background-image: linear-gradient(180deg,transparent 97%,#000);
+    background-size: 100%;
+    content: "";
+    height: 80%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    transform: scaleX(-1) scaleY(-1.005);
+}
+  .Story_content_p{
+    font-family: 'Witcher', sans-serif;
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+  }

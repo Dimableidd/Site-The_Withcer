@@ -1,0 +1,2359 @@
+body{
+    margin:0;
+    padding:0;
+    color: #fff;
+    font-size: 20px;
+    height: 100%;
+}
+
+@font-face {
+  font-family: 'Gwent';
+  src: url('/font/gwent_extrabold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Witcher';
+  src: url('/font/masonchronicles.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navigation {
+    max-width: 1920px;
+    position:absolute;
+    bottom: 5%;
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+  }
+  .logo img {
+    padding-left: 20px;
+    height: 50px;
+  }
+  
+  .logo {
+    text-decoration: none;
+    z-index: 10;
+  }
+  nav{ padding-right: 4%;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  nav li {
+    margin: 0 15px;
+    position: relative;
+  }
+  
+  nav a {
+    font-family: 'Gwent', sans-serif;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
+  }
+  
+  nav a:hover {
+    color: #e50914;
+  }
+  
+  .sub-menu {
+    position: absolute;
+    top: calc(100% + 20px);
+    left: 0;
+    background-image: none;
+    background-color: #091318de;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 200px;
+  }
+  
+  .sub-menu li {
+    margin: 0;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .sub-menu li:first-child {
+    border-top: none;
+  }
+  
+  .sub-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  nav li:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
+  
+  .burger-icon {
+    display: none;
+  }
+  .navigation.scroll {
+    background: url(https://static.cdprojektred.com/thewitcher.com/gfx/top3_menu_bg.png) 50% 0px no-repeat;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    bottom: auto;
+  }
+  .navigation.scroll::before{
+    background: url(http://clipart-library.com/new_gallery/716115_sparkle-overlay-png.png) no-repeat bottom;
+    background-size: 100%;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    opacity: 40%;
+  }
+  .navigation.scroll::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5%;
+    left: -1%;
+    right: -1%;
+    bottom: 0;
+    z-index: 1;
+    border-width: 20px;
+    border-style: solid;
+    border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+    border-image-slice: 12;
+    border-image-outset: 0;
+    border-image-repeat: round;
+    pointer-events: none;
+    opacity: 60%;
+  }
+  
+  .navigation.scroll .logo img {
+    height: 40px;
+  }
+  
+  @media (max-width: 1000px) {
+    nav ul {
+      display: none;
+      flex-direction: row;
+      align-items: start;
+      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 0px;
+      background: url(https://www.thewitcher.com/build/images/bg-section-characters-1440-43f83205..jpg) no-repeat top;
+      padding: 48px 48px 48px 10px;
+      box-sizing: border-box;
+      z-index: 999;
+      opacity: 0;
+      justify-content: space-between;
+      transition: all 0.3s ease-in-out;
+    }
+    
+  
+    nav{ padding-right: 7%;
+      z-index: 11;
+    }
+    nav a {
+      font-size: 1.8vw;
+    }
+    nav ul.active {
+      display: flex;
+      opacity: 1;
+    }
+    nav ul.active::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -1%;
+      right: -1%;
+      bottom: 0;
+      z-index: 1;
+      border-width: 20px;
+      border-style: solid;
+      border-image-source: url(https://www.playgwent.com/build/img/master-mirror/images-frame@1x-95b341c2.png);
+      border-image-slice: 12;
+      border-image-outset: 0;
+      border-image-repeat: round;
+      pointer-events: none;
+    }
+  
+    nav li {
+      margin: 10px 0;
+      position: static;
+    }
+    
+    .burger-icon {
+      display: block;
+      cursor: pointer;
+      }
+      
+    .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #fff;
+      margin: 5px 0;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .bar.active {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .bar.active:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .bar.active:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .sub-menu {
+      top: 60px;
+      width: 100%;
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    
+    .sub-menu li {
+      border-top: none;
+      padding: 5px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .sub-menu li:last-child {
+      border-bottom: none;
+    }
+    
+    nav li:hover .sub-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .navigation.scroll {
+      background-color: #20202099;
+      padding: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      bottom: auto;
+    }
+    
+    .navigation.scroll .logo img {
+      height: 40px;
+    }
+  }
+  @media (max-width: 600px) {
+    nav ul {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: #202020;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+  
+    nav{ padding-right: 7%;
+    }
+    nav a {
+      font-size: 1.5vh;
+    }
+    nav ul.active {
+      display: flex;
+      opacity: 1;
+    }
+  
+    nav li {
+      margin: 10px 0;
+      position: static;
+    }
+    
+    .burger-icon {
+      display: block;
+      cursor: pointer;
+      }
+      
+    .bar {
+      height: 3px;
+      width: 25px;
+      background-color: #fff;
+      margin: 5px 0;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .bar.active {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .bar.active:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .bar.active:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .sub-menu {
+      top: 60px;
+      width: 100%;
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    
+    .sub-menu li {
+      border-top: none;
+      padding: 5px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .sub-menu li:last-child {
+      border-bottom: none;
+    }
+    
+    nav li:hover .sub-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .navigation.scroll {
+      background-color: #20202099;
+      padding: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      bottom: auto;
+    }
+    
+    .navigation.scroll .logo img {
+      height: 40px;
+    }
+  }
+
+  #container{
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header {
+    width: 100%;
+    height: 100%;
+    max-height: 1000px; 
+    position: relative;
+    margin-bottom:-5px;
+  }
+  header::before{
+    background-image: linear-gradient(180deg,transparent 80%,#000);
+    content: "";
+    height: 80%;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 100%;
+    margin-bottom: 200px;
+  }
+
+  .vid_back{
+    max-width: 1920px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: -1;
+  }
+
+  .logo_fon{
+    position: absolute;
+    text-align: center;
+    top: 2%;
+    z-index: 10;
+    max-width: 100%;    
+    left: 0;
+    right: 0;
+  }
+
+  @media screen and (max-width: 480px){
+    
+    .logo_fon{
+        top: 0%;
+      }
+    .img_logo{
+        height: 100%;
+        width: 100%;
+        }
+    .logo img {
+        height: 10vw;
+        }
+    .Story_content_p{
+        text-align: justify;
+        padding: 2% 10% 2% 10%; 
+        }
+    .Gameplay_content_p{
+      text-align: justify;
+      padding: 2% 10% 2% 10%; 
+      }
+    .History_content_p{
+      text-align: justify;
+      padding: 2% 10% 2% 10%; 
+      }
+    .Technical_content_p{
+      text-align: justify;
+      padding: 2% 10% 2% 10%; 
+      }
+    .Awards_content_p{
+      text-align: justify;
+      padding: 2% 10% 2% 10%; 
+      }
+    .DLC_content_p{
+      text-align: justify;
+      padding: 2% 10% 2% 10%; 
+      }
+    .GG_content_p {
+        text-align: justify;
+        padding: 2% 10% 2% 10%; 
+        }
+    .footer_content{
+      text-align: center;
+      font-size: 70%;
+      padding: 2% 30% 2% 30%; 
+      }
+  }
+  @media screen and (min-width: 481px){
+    .img_logo{
+        height: 15%;
+        width: 23%;
+        }
+    .Story_content_p{
+        text-align: justify;
+        padding: 2% 8% 2% 8%; 
+        }
+    .Gameplay_content_p{
+      text-align: justify;
+      padding: 2% 8% 2% 8%; 
+      }
+    .History_content_p{
+      text-align: justify;
+      padding: 2% 8% 2% 8%; 
+      }
+    .Technical_content_p{
+      text-align: justify;
+      padding: 2% 8% 2% 8%; 
+      }
+    .Awards_content_p{
+      text-align: justify;
+      padding: 2% 8% 2% 8%; 
+      }
+    .DLC_content_p{
+      text-align: justify;
+      padding: 2% 8% 2% 8%; 
+      }
+    .GG_content_p {
+      text-align: justify;
+      padding: 2% 8% 2% 8%;
+        }
+    .footer_content{
+      text-align: center;
+      font-size: 100%;
+      padding: 2% 30% 2% 30%; 
+      }
+  }
+  .Witcher {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+  .Witcher::before {
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    background-size: 100%;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+  }
+  .Witcher:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+    height: 9px;
+    width: 100%;
+  }
+  .Witcher_header{
+    font-family: 'Witcher', sans-serif;
+    font-size: 180%;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .Witcher_content{
+    font-family: 'Gwent', sans-serif;
+    font-size: 120%;
+    padding: 0% 10% 2% 10%;
+    text-align: justify;
+    line-height: 30px;
+    position: relative;
+  }
+
+  .hr_style{
+    margin: 0% 5% 2% 5%;
+    border-radius: 200px;
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png);
+    box-shadow: 5px 5px 5px black;
+    position: relative;
+    z-index: 1;
+  }
+
+  .Story{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    background: url(https://phonoteka.org/uploads/posts/2022-02/1645135920_16-phonoteka-org-p-priyatnii-temnii-fon-17.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position-x: center;
+  }
+  .Story::after{
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 100%;
+  }
+  .Story_content_p{
+    font-family: 'Witcher', sans-serif;
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+  }
+  .Gameplay{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    background: url(https://w.forfun.com/fetch/e8/e8d94cf6062ea99488977afd7e3e91d8.jpeg) no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    font-family: 'Gwent', sans-serif;
+  }
+  .Gameplay_content_p{
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+  }
+  .History{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    background: url(https://catherineasquithgallery.com/uploads/posts/2021-03/1615845553_161-p-chernii-fon-vertikalnii-186.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position-x: center;
+    font-family: 'Gwent', sans-serif;
+  }
+  .History::before{
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    background-size: 100%;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    transform: scaleX(-1) scaleY(-1);
+  }
+  .History::after{
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 100%;
+  }
+  .History_content_p{
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .Technical {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    background: url(https://catherineasquithgallery.com/uploads/posts/2021-02/1614441331_52-p-temnii-fon-dlya-chata-61.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+    background-position-x: center;
+    font-family: 'Gwent', sans-serif;
+}
+  .Technical::after{
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 100%;
+  }
+  .Technical_content_p{
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+  }
+  .Awards{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    background-size: cover;
+    position: relative;
+    font-family: 'Gwent', sans-serif;
+  }
+  .Awards::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(https://vignette.wikia.nocookie.net/witcher/images/1/1e/Tw2_noticeboard.png/revision/latest?cb=20110601230850) no-repeat;
+    background-size: cover;
+    filter: brightness(15%);
+  }
+  .Awards_content_p{
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .DLC{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  .DLC:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+    height: 9px;
+    width: 100%;
+    z-index: 1;
+  }
+  .DLC_content_p{
+    font-family: 'Gwent', sans-serif;
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .DLC_content_p::before{
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    background-size: 100%;
+    content: "";
+    height: 50%;
+    left: 0;
+    top: -0.1%;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    transform: scaleX(-1) scaleY(-1);
+  }
+  .DLC_content_p::after{
+    background-image: linear-gradient(180deg,transparent 90%,#000);
+    content: "";
+    height: 50%;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 100%;
+  }
+  .GG{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  .GG::before{
+    background-image: linear-gradient(360deg,transparent 99%,#000);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    width: 100%;
+  }
+  .GG_content_p{
+    font-family: 'Witcher', sans-serif;
+    height: 100%;
+    font-size: 130%;
+    line-height: 30px;
+  }
+  .main_width {
+    font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+}
+.Сharacters {
+  height: auto;
+  width: 100%;
+  position: relative; 
+}
+.Сharacters:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+  height: 9px;
+  width: 100%;
+}
+.Сharacters:after {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  content: "";
+  background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x bottom;
+  height: 9px;
+  width: 100%;
+}
+.Сharacters3 {
+  height: auto;
+  width: 100%;
+  position: relative; 
+}
+.Сharacters4 {
+  height: auto;
+  width: 100%;
+  position: relative; 
+}
+.Сharacters4::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+  height: 9px;
+  width: 100%;
+}
+.Сharacters4::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+  height: 9px;
+  width: 100%;
+}
+.char1{
+  background: url(../img/Character/character_bg_witcher1.jpg) 50% 0 no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+.char2{
+  background: url(../img/Character/character_bg_witcher2.jpg) 50% 0 no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+.char3{
+  background: url(../img/Character/character_bg_witcher3.jpg) 0% 0 no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+.char4{
+  background: url(../img/Character/character_bg_witcher4.jpg) 0% 0 no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+@media screen and (min-width: 895px) {
+  .Сharacters {
+    height: 768px;
+  }
+  .Сharacters3 {
+    height: 768px;
+  }
+  .Сharacters4 {
+    height: 768px;
+  }
+  .char_lutic {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: 90px 0px 0px -470px;
+  }
+  .char_triss1 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: 35px 0px 0px -350px;
+  }
+  .char_yorweth {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -10px 0px 0px -250px;
+  }
+  .char_letho {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -50px 0px 0px -40px;
+  }
+  .char_vernon {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -10px 0px 0px 120px;
+  }
+  .char_dethmold {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: 35px 0px 0px 230px;
+  }
+  .char_zoltan {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: 90px 0px 0px 380px;
+  }
+  .char_triss {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: 10px 0 0 -210px;
+  }
+  .char_vesimir {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: 30px 0 0 -30px;
+  }
+  .char_siegfried {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: 60px 0 0 140px;
+  }
+  .char_toruviel {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: 90px 0 0 280px;
+  }
+  .char_eredin {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -10px 0px 0px -580px;
+  }
+  .char_emgir {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -40px 0px 0px -390px;
+  }
+  .char_yennifer {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -60px 0 0 -180px;
+  }
+  .char_ciri {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -80px 0 0 30px;
+  }
+  .char_vesimir1 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -60px 0 0 240px;
+  }
+  .char_triss2 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -40px 0 0 450px;
+  }
+  .char_reinard {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -160px 0px 0px -670px;
+  }
+  .char_broover {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -40px 0px 0px -470px;
+  }
+  .char_meva {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -160px 0 0 -240px;
+  }
+  .char_gaskon {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -160px 0 0 40px;
+  }
+  .char_dagi {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -130px 0 0 190px;
+  }
+  .char_demavend {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -180px 0 0 370px;
+  }
+  .h2_cont{
+    padding-right: 50%;
+    font-size: 300%;
+  }
+  .Сharacters_content{
+    padding: 2% 0 10%;
+  }
+  .char_box{
+    height: 576px;
+    margin-left: -416px;
+    margin-top: -288px;
+    width: 832px;
+    left: 50%;
+    top: 50%;
+  }
+  .char_box_content {
+    position: relative;
+  }
+  .char_box_name {
+    left: 0;
+    position: absolute;
+    top: 15px;
+    width: 100%;
+    z-index: 104;
+}
+.concept_lutic {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_dandelion.png) 0 0 no-repeat;
+  height: 618px;
+  width: 410px;
+}
+.concept_triss1 {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_triss.png) 0 0 no-repeat;
+  height: 618px;
+  width: 410px;
+}
+.concept_yorweth {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_yorweth.png) 0 0 no-repeat;
+  height: 618px;
+  width: 410px;
+}
+.concept_letho {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_letho.png) 0 0 no-repeat;
+  height: 618px;
+  width: 410px;
+}
+.concept_vernon {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_vernon.png) 0 0 no-repeat;
+  height: 618px;
+  width: 410px;
+}
+.concept_dethmold {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_dethmold.png) 0 0 no-repeat;
+  height: 685px;
+  width: 465px;
+}
+.concept_zoltan {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_zoltan.png) 0 0 no-repeat;
+  height: 545px;
+  width: 379px;
+}
+.concept_triss {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_concept_triss.png) 0 0 no-repeat;
+  height: 559px;
+  width: 451px;
+}
+.concept_vesimir {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_concept_vesimir.png) 0 0 no-repeat;
+  height: 559px;
+  width: 451px;
+}
+.concept_zygfryd {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_concept_zygfryd.png) 0 0 no-repeat;
+  height: 559px;
+  width: 451px;
+}
+.concept_toruviel {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_concept_toruviel.png) 0 0 no-repeat;
+  height: 559px;
+  width: 451px;
+}
+.concept_eredin {
+  background: url(../img/Character/Witcher_3/Eredin.png) 0 0 no-repeat;
+  height: 690px;
+  width: 655px;
+}
+.concept_emgir {
+  background: url(../img/Character/Witcher_3/Emgir.png) 0 0 no-repeat;
+  height: 684px;
+  width: 400px;
+  background-size: cover;
+}
+.concept_yennifer {
+  background: url(../img/Character/Witcher_3/Yennifer.png) 0 0 no-repeat;
+  height: 684px;
+  width: 400px;
+  background-size: cover;
+}
+.concept_ciri {
+  background: url(../img/Character/Witcher_3/Ciri.png) 0 0 no-repeat;
+  height: 1044px;
+  width: 391px;
+}
+.concept_vesimir1 {
+  background: url(../img/Character/Witcher_3/Vesimir.png) 0 0 no-repeat;
+  height: 702px;
+  width: 399px;
+  background-size: cover;
+}
+.concept_triss2 {
+  background: url(../img/Character/Witcher_3/Triss.png) 0 0 no-repeat;
+  height: 708px;
+  width: 451px;
+  background-size: cover;
+}
+.concept_reinard {
+  background: url(https://www.thewitcher.com/build/images/character-odo-idle-655a824f..png) 0 0 no-repeat;
+  height: 604px;
+  width: 395px;
+  background-size: cover;
+}
+.concept_broover {
+  background: url(https://www.thewitcher.com/build/images/character-hoog-idle-b9f8f724..png) 0 0 no-repeat;
+  height: 653px;
+  width: 384px;
+  background-size: cover;
+  margin-right: 3%;
+}
+.concept_meva {
+  background: url(https://www.thewitcher.com/build/images/character-meve-idle-a2a5432f..png) 0 0 no-repeat;
+  height: 614px;
+  width: 329px;
+  background-size: cover;
+  margin-right: 5%;
+}
+.concept_gaskon {
+  background: url(https://www.thewitcher.com/build/images/character-gascon-idle-f83720ac..png) 0 0 no-repeat;
+  height: 575px;
+  width: 327px;
+  background-size: cover;
+  margin-right: 5%;
+}
+.concept_dagi {
+  background: url(https://www.thewitcher.com/build/images/character-dahy-idle-603c0a8d..png) 0 0 no-repeat;
+  height: 629px;
+  width: 372px;
+  background-size: cover;
+  margin-right: 3%;
+}
+.concept_demavend {
+  background: url(https://www.thewitcher.com/build/images/character-demavend-idle-64cd2fd4..png) 0 0 no-repeat;
+  height: 637px;
+  width: 393px;
+  background-size: cover;
+}
+.char_desc {
+  font-size: 60%;
+    height: 300px;
+    left: 30px;
+    line-height: 20px;
+    overflow: auto;
+    position: absolute;
+    text-shadow: 2px 2px 2px #000;
+    top: 130px;
+    width: 360px;
+    z-index: 104;
+}
+.char_desc1 {
+  font-size: 60%;
+    height: 300px;
+    left: 30px;
+    line-height: 20px;
+    overflow: auto;
+    position: absolute;
+    text-shadow: 2px 2px 2px #000;
+    top: 130px;
+    width: 400px;
+    z-index: 104;
+}
+.char_image {
+  bottom: 0;
+}
+.gallery-top {
+  position: relative;
+  height: 40vw; 
+  width: auto;
+}
+.gallery-thumbs {
+  height: 8vw;
+}
+.conteiner_slider{
+  padding: 3% 15% 0% 15%;
+}
+}
+@media screen and (max-width: 1300px) {
+  .Сharacters3 {
+    height: 500px;
+  }
+  .Сharacters4 {
+    height: 500px;
+  }
+  .char_eredin {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -10px 0px 0px -390px;
+  }
+  .char_emgir {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -40px 0px 0px -270px;
+  }
+  .char_yennifer {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -60px 0 0 -150px;
+  }
+  .char_ciri {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -80px 0 0 10px;
+  }
+  .char_vesimir1 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -60px 0 0 140px;
+  }
+  .char_triss2 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 200%;
+    margin: -40px 0 0 270px;
+  }
+  .char_reinard {
+    color: inherit;
+    text-decoration: none;
+    font-size: 150%;
+    margin: -110px 0px 0px -450px;
+  }
+  .char_broover {
+    color: inherit;
+    text-decoration: none;
+    font-size: 150%;
+    margin: -40px 0px 0px -310px;
+  }
+  .char_meva {
+    color: inherit;
+    text-decoration: none;
+    font-size: 150%;
+    margin: -90px 0 0 -170px;
+  }
+  .char_gaskon {
+    color: inherit;
+    text-decoration: none;
+    font-size: 150%;
+    margin: -90px 0 0 20px;
+  }
+  .char_dagi {
+    color: inherit;
+    text-decoration: none;
+    font-size: 150%;
+    margin: -80px 0 0 120px;
+  }
+  .char_demavend {
+    color: inherit;
+    text-decoration: none;
+    font-size: 150%;
+    margin: -110px 0 0 250px;
+  }
+}
+@media screen and (max-width: 895px) {
+  .Сharacters {
+    height: 300px;
+  }
+  .Сharacters3 {
+    height: 250px;
+  }
+  .Сharacters4 {
+    height: 200px;
+  }
+  .char_lutic {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 15px 0px 0px -190px;
+  }
+  .char_triss1 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 0px 0px 0px -140px;
+  }
+  .char_yorweth {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -20px 0px 0px -100px;
+  }
+  .char_letho {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -30px 0px 0px -20px;
+  }
+  .char_vernon {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -20px 0px 0px 45px;
+  }
+  .char_dethmold {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 0px 0px 0px 90px;
+  }
+  .char_zoltan {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 15px 0px 0px 150px;
+  }
+  .char_triss {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 10px 0 0 -85px;
+  }
+  .char_vesimir {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 30px 0 0 -9px;
+  }
+  .char_siegfried {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 40px 0 0 60px;
+  }
+  .char_toruviel {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 60px 0 0 110px;
+  }
+  .char_eredin {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 0vw 0vw 0vw -27vw;
+  }
+  .char_emgir {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -2vw 0vw 0vw -18vw;
+  }
+  .char_yennifer {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -3vw 0vw 0vw -9vw;
+  }
+  .char_ciri {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -4vw 0vw 0vw 1vw;
+  }
+  .char_vesimir1 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -3vw 0vw 0vw 10vw;
+  }
+  .char_triss2 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -1vw 0vw 0vw 19vw;
+  }
+  .char_reinard {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -2vw 0vw 0vw -32vw;
+  }
+  .char_broover {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: 2vw 0vw 0vw -22vw;
+  }
+  .char_meva {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -2vw 0vw 0vw -13vw;
+  }
+  .char_gaskon {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -2vw 0vw 0vw 1vw;
+  }
+  .char_dagi {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -1vw 0vw 0vw 7vw;
+  }
+  .char_demavend {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -3vw 0vw 0vw 17vw;
+  }
+  .h2_cont{
+    padding-right: 50%;
+    font-size: 150%;
+  }
+  .Сharacters_content{
+    padding: 2% 0 10%;
+  }
+  
+  .char_box {
+    width: 80vw;
+    left: 10%;
+    top: 20%;
+}
+.char_box_name {
+  left: 0;
+  position: absolute;
+  top: 2%;
+  width: 100%;
+  z-index: 104;
+}
+.concept_lutic {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_dandelion.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_triss1 {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_triss.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_yorweth {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_yorweth.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_letho {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_letho.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_vernon {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_vernon.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_dethmold {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_dethmold.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_zoltan {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/render_zoltan.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_triss {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_concept_triss.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_vesimir {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_concept_vesimir.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_zygfryd {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_concept_zygfryd.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_toruviel {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_concept_toruviel.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_eredin {
+  background: url(../img/Character/Witcher_3/Eredin.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_emgir {
+  background: url(../img/Character/Witcher_3/Emgir.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_yennifer {
+  background: url(../img/Character/Witcher_3/Yennifer.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_ciri {
+  background: url(../img/Character/Witcher_3/Ciri.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_vesimir1 {
+  background: url(../img/Character/Witcher_3/Vesimir.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_triss2 {
+  background: url(../img/Character/Witcher_3/Triss.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_reinard {
+  background: url(https://www.thewitcher.com/build/images/character-odo-idle-655a824f..png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_broover {
+  background: url(https://www.thewitcher.com/build/images/character-hoog-idle-b9f8f724..png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_meva {
+  background: url(https://www.thewitcher.com/build/images/character-meve-idle-a2a5432f..png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_gaskon  {
+  background: url(https://www.thewitcher.com/build/images/character-gascon-idle-f83720ac..png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_dagi {
+  background: url(https://www.thewitcher.com/build/images/character-dahy-idle-603c0a8d..png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.concept_demavend {
+  background: url(https://www.thewitcher.com/build/images/character-demavend-idle-64cd2fd4..png) 0 0 no-repeat;
+  background-size: contain;
+  width: 35vw;
+  background-position: bottom;
+}
+.char_desc {
+  font-size: 50%;
+  height: 50%;
+  left: 30px;
+  line-height: 20px;
+  overflow: auto;
+  position: absolute;
+  text-shadow: 2px 2px 2px #000;
+  top: 25%;
+  width: 45%;
+  z-index: 104;
+}
+.char_desc1 {
+  font-size: 50%;
+  height: 50%;
+  left: 30px;
+  line-height: 20px;
+  overflow: auto;
+  position: absolute;
+  text-shadow: 2px 2px 2px #000;
+  top: 25%;
+  width: 45%;
+  z-index: 104;
+}
+.char_image {
+  bottom: 0;
+}
+.gallery-top {
+  position: relative;
+  height: 60vw; /* задаем фиксированную высоту */
+  width: auto;
+}
+.gallery-thumbs {
+  height: 15vw;
+}
+.conteiner_slider{
+  padding: 3% 0% 0% 0%;
+}
+@media screen and (max-width: 720px) {
+  .char_eredin {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -10px 0px 0px -190px;
+  }
+  .char_emgir {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -20px 0px 0px -135px;
+  }
+  .char_yennifer {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -30px 0px 0px -70px;
+  }
+  .char_ciri {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -40px 0px 0px 0px;
+  }
+  .char_vesimir1 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -30px 0px 0px 65px;
+  }
+  .char_triss2 {
+    color: inherit;
+    text-decoration: none;
+    font-size: 100%;
+    margin: -20px 0px 0px 135px;
+}
+.char_reinard {
+  color: inherit;
+  text-decoration: none;
+  font-size: 80%;
+  margin: -40px 0px 0px -190px;
+}
+.char_broover {
+  color: inherit;
+  text-decoration: none;
+  font-size: 80%;
+  margin: -10px 0px 0px -150px;
+}
+.char_meva {
+  color: inherit;
+  text-decoration: none;
+  font-size: 80%;
+  margin: -50px 0px 0px -80px;
+}
+.char_gaskon {
+  color: inherit;
+  text-decoration: none;
+  font-size: 80%;
+  margin: -50px 0px 0px 5px;
+}
+.char_dagi {
+  color: inherit;
+  text-decoration: none;
+  font-size: 80%;
+  margin: -30px 0px 0px 40px;
+}
+.char_demavend {
+  color: inherit;
+  text-decoration: none;
+  font-size: 80%;
+  margin: -50px 0px 0px 80px;
+}
+}
+@media screen and (min-height: 400px) {
+  .concept_lutic {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_triss1 {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_yorweth {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_letho {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_vernon {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_dethmold {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_zoltan {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_triss {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_vesimir {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_zygfryd {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_toruviel {
+    height: 30vh;
+    width: 35vw;
+  }
+  .concept_eredin {
+    height: 42vh;
+    width: 53vw;
+  }
+  .concept_emgir {
+    height: 42vh;
+    width: 42vw;
+    margin-bottom: 1%;
+}
+  .concept_yennifer {
+    height: 42vh;
+    width: 42vw;
+    margin-bottom: 1%;
+}
+  .concept_ciri {
+    height: 53vh;
+    width: 42vw;
+    margin-bottom: 1%;
+}
+  .concept_vesimir1 {
+    height: 44vh;
+    width: 43vw;
+  }
+  .concept_triss2 {
+    height: 46vh;
+    width: 46vw;
+  }
+  .concept_reinard {
+    height: 42vh;
+    width: 38vw;
+    bottom: -10vw;
+  }
+  .concept_broover {
+    height: 47vh;
+    width: 37vw;
+    bottom: -7vw;
+}
+  .concept_meva {
+    height: 38vh;
+    width: 37vw;
+    bottom: -2vw;
+}
+  .concept_gaskon {
+    height: 37vh;
+    width: 37vw;
+    bottom: -3vw;
+}
+  .concept_dagi {
+    height: 41vh;
+    width: 37vw;
+    bottom: -5vw;
+  }
+  .concept_demavend {
+    height: 46vh;
+    width: 37vw;
+    bottom: -10vw;
+  }
+  .char_box {
+    height: 36vh;
+}
+.conteiner_slider{
+  padding: 3% 0% 0% 0%;
+}
+.header{
+  justify-content: center;
+}
+}
+@media screen and (max-height: 400px) {
+  .concept_lutic {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_triss1 {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_yorweth {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_letho {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_vernon {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_dethmold {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_zoltan {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_triss {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_vesimir {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_zygfryd {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_toruviel {
+    height: 65vh;
+    width: 35vw;
+  }
+  .concept_eredin {
+    height: 82vh;
+    width: 47vw;
+    margin-bottom: 1%;
+}
+  .concept_emgir {
+    height: 80vh;
+    width: 42vw;
+    margin-bottom: 1%;
+}
+  .concept_yennifer {
+    height: 80vh;
+    width: 42vw;
+    margin-bottom: 1%;
+}
+  .concept_ciri {
+    height: 108vh;
+    width: 42vw;
+    margin-bottom: 1%;
+}
+  .concept_vesimir1 {
+    height: 90vh;
+    width: 45vw;
+  }
+  .concept_triss2 {
+    height: 90vh;
+    width: 45vw;
+  }
+  .concept_reinard {
+    height: 91vh;
+    width: 36vw;
+    margin-bottom: -10%;
+}
+  .concept_broover {
+    height: 91vh;
+    width: 36vw;
+    margin-bottom: -7%;
+}
+  .concept_meva {
+    height: 79vh;
+    width: 36vw;
+    margin-bottom: -3%;
+}
+  .concept_gaskon {
+    height: 75vh;
+    width: 36vw;
+    margin-bottom: -3%;
+}
+  .concept_dagi {
+    height: 84vh;
+    width: 36vw;
+    margin-bottom: -6%;
+  }
+  .concept_demavend {
+    height: 91vh;
+    width: 36vw;
+    margin-bottom: -10%;
+  }
+  .char_box {
+    height: 70vh;
+}
+.gallery-top {
+  height: 40vw;
+}
+.conteiner_slider{
+  padding: 3% 15% 0% 15%;
+}
+}
+}
+h1{
+  font-size: 200%;
+  margin: 2% 0%;
+  font-family: 'Witcher', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+h2{
+  font-size:170%;
+  margin-top:0;
+  font-family: 'Witcher', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+h3{
+  font-size:140%;
+  margin-top:0;
+  font-family: 'Witcher', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+ul {
+  list-style:square;
+  margin: 0 0 0 3%;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+li {
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+}
+.Сharacters_content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -35px;
+  font-family: 'Witcher', sans-serif;
+}
+.char_name{
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  font-family: 'Gwent', sans-serif;
+}
+.char_lutic:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_triss1:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_yorweth:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_letho:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_vernon:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_dethmold:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_zoltan:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_triss:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_vesimir:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_siegfried:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_toruviel:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_eredin:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_emgir:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_yennifer:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_ciri:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_vesimir1:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_triss2:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_reinard:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_broover:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_meva:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_gaskon:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_dagi:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+.char_demavend:hover {
+  text-decoration: underline;
+  color:#e50914;
+}
+
+.faded{
+  background: #000;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transform: translateZ(0);
+  width: 100%;
+  z-index: 100;
+  display: none; 
+  transition: all 0.5s ease-out;
+}
+.char_box {
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_char_panel.jpg) 0 0 no-repeat;
+  display: none;
+  opacity: 0;
+  background-position: center;
+  position: fixed;
+  transform: translateZ(0);
+  z-index: 101;
+  transition: all 0.5s ease-out;
+  font-family: 'Witcher', sans-serif;
+}
+.char_box_content{
+  height: 576px;
+  width: 832px;
+}
+.char_info{
+  display: none; 
+}
+.char_box_close{
+  background: url(https://static.cdprojektred.com/thewitcher.com/gfx/w1_char_close.png) 0 0 no-repeat;
+  display: block;
+  float: right;
+  height: 39px;
+  margin-right: 11px;
+  margin-top: 13px;
+  width: 39px;
+  z-index: 105;
+  text-decoration: none;
+}
+.char_box_close:hover{
+  filter: brightness(350%);
+}
+.char_image {
+  position: absolute;
+  right: 2%;
+  z-index: 102;
+}
+
+
+.header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+.label{
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-inline-end: 0;
+  padding: 3px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-inline-end: 15px;
+}
+.label:after {
+  content: " ";
+  display: block;
+  height: 2px;
+  width: 100%;
+}
+.label:hover {
+color:#e50914;
+}
+.header .label.active {
+  color: red;
+  text-decoration:underline;
+}
+.conteiner_slider{
+  background: url(https://www.playgwent.com/build/img/footer/bg-footer-1440-dcbabc8a.jpg) no-repeat;
+  background-size: cover;
+  position: relative;
+  font-family: 'Gwent', sans-serif;
+}
+.conteiner_slider:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+  height: 9px;
+  width: 100%;
+}
+.slider{
+  height: 100%;
+  width: 100%;
+}
+.swiper-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+.swiper-slide {
+  background-size:cover;
+  background-position: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.swiper-button-prev::after, 
+.swiper-button-next::after {
+  color: rgb(0, 255, 38);
+  font-size:80px;
+  opacity: 50%;
+}
+.swiper-button-prev:hover::after, 
+.swiper-button-next:hover::after {
+  opacity: 100%;
+}
+.swiper-slide {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.swiper-slide::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  border-width: 12px;
+  border-style: solid;
+  border-image-source: url(https://www.playgwent.com/build/img/frame-0462ba37.png);
+  border-image-slice: 12;
+  border-image-outset: 0;
+  border-image-repeat: round;
+  pointer-events: none;
+}
+.gallery-thumbs {
+  width: auto;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+.gallery-thumbs .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+  cursor: pointer;
+}
+.gallery-thumbs .swiper-slide:hover{
+  opacity: 1;
+}
+.gallery-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+footer {
+  width: 100%;
+  height: 100%;
+  max-height: 800px;
+  position: relative;
+  margin-bottom: -5px;
+  background: url(https://www.playgwent.com/build/img/section-bg/bg-1440-79d322d2.jpg) no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  line-height: 30px;
+  font-family: 'Gwent', sans-serif;
+}
+footer::before{
+  background-image: linear-gradient(360deg,transparent 90%,#000);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  width: 100%;
+}
+footer:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background: url(https://www.playgwent.com/build/img/iron/line-footer-gold-65050b3c.png) repeat-x top;
+  height: 9px;
+  width: 100%;
+}
+
+.s-fractions{
+  font-family: 'Gwent', sans-serif;
+  padding: 35px 20px 0;
+  background: url(https://i.playground.ru/p/Hqb2kGzyQeRtgKc_b4fQcA.jpeg) no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  position: relative;
+}
+.s-fractions::before{
+  background-image: linear-gradient(180deg,transparent 90%,#000);
+  background-size: 100%;
+  content: "";
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  transform: scaleX(-1) scaleY(-1);
+}
+.s-fractions::after{
+  background-image: linear-gradient(180deg,transparent 90%,#000);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
+  width: 100%;
+}
+.h_fractions{
+  text-align: center;
+}
+.fractions{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
+  border-top: 2px solid;
+  border-image: linear-gradient(270deg,transparent 0,#ad8332 1%,#ad8332 99%,transparent) 2 round;
+  border-bottom: 0;
+}
+
+.fraction_item{
+  flex: 1 0 calc(16.666% - 2px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 0;
+  border-style: solid;
+  border-image: linear-gradient(0deg,transparent 40%,#ad8332 60%) 2 round;
+  border-right-width: 2px;
+  flex-flow: row wrap;
+  max-width: 16.666%;
+  width: 16.666%;
+}
+.fraction_item_last:last-of-type{
+  border-right-width: 0;
+}
+.fraction_item-info{
+  flex: 0 0 100%;
+  text-align: center;
+  margin-top: -148px;
+}
+.fraction_item-image{
+  flex: 0 0 100%;
+  display: block;
+}
+.fraction_item-info-card{
+  padding: 0 10px;
+}
+.fraction_item-info-text{
+  position: relative;
+  z-index: 1;
+  margin-top: -13px;
+}
+.imgf{
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 1201px){
+  .s-fractions{
+    background: url(https://i.playground.ru/p/Hqb2kGzyQeRtgKc_b4fQcA.jpeg) no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    position: relative;
+  }
+  .fraction_item-image{
+    min-height: 340px;
+  }
+  
+}
+@media screen and (max-width: 1200px){
+  .s-fractions{
+    background: url(https://www.playgwent.com/build/img/iron/backgrounds/bg-01_1440-7c0200fb.jpg) no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    position: relative;
+  }
+  .fractions{
+    border-top: 0;
+  }
+  .fraction_item{
+    flex: 0 0 100%;
+    border-right-width: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 5px;
+  }
+  .fraction_item-image{
+    display: none;
+  }
+  .fraction_item-info{
+    margin-top: 0;
+  }
+  .fraction_item-info-card{
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-image: url(/build/img/join/join-hc/mobile/magic-under-cards-1-d0f84ba8.png);
+  }
+  .fraction_item-info-text{
+    margin-top: -50px;
+    font-size: 150%;
+    line-height: 120%;
+    padding: 0 25%;
+    text-align: center;
+  }
+}
